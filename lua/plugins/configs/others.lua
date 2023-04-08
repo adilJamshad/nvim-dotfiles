@@ -51,16 +51,28 @@ end
 
 M.gitsigns = {
   signs = {
-    add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-    change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+    add = { hl = "DiffAdd", text = "|", numhl = "GitSignsAddNr" },
+    change = { hl = "DiffChange", text = "|", numhl = "GitSignsChangeNr" },
     delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
     topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
     changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
     untracked = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
   },
-  on_attach = function(bufnr)
-    utils.load_mappings("gitsigns", { buffer = bufnr })
-  end,
+  -- on_attach = function(bufnr)
+  --   utils.load_mappings("gitsigns", { buffer = bufnr })
+  -- end,
+  current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+      delay = 500,
+      ignore_whitespace = false,
+    },
+  current_line_blame = true,
+  current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+  yadm = {
+    enable = false
+  },
+  update_debounce = 100,
 }
 
 return M

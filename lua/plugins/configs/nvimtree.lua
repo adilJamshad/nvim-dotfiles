@@ -3,7 +3,6 @@ local options = {
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   },
-  open_on_setup = true,
   disable_netrw = true,
   hijack_netrw = true,
   hijack_cursor = true,
@@ -20,8 +19,10 @@ local options = {
     hide_root_folder = true,
   },
   git = {
-    enable = false,
+    enable = true,
     ignore = true,
+    show_on_dirs = true,
+    show_on_open_dirs = true,
   },
   filesystem_watchers = {
     enable = true,
@@ -32,7 +33,7 @@ local options = {
     },
   },
   renderer = {
-    highlight_git = false,
+    highlight_git = true,
     highlight_opened_files = "none",
 
     indent_markers = {
@@ -44,7 +45,7 @@ local options = {
         file = true,
         folder = true,
         folder_arrow = true,
-        git = false,
+        git = true,
       },
 
       glyphs = {
